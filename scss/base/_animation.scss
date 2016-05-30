@@ -1,0 +1,73 @@
+@import "../vendor/fading-entrances";
+@import "../vendor/bouncing-entrances";
+
+// Animation
+.animate {
+    @include opacity(0);
+    @include transition(.5s all ease-in-out);
+    &.fill-bar {
+        .skill-bar {
+            width: 0;
+            @include transition(1s all ease-in-out);
+        }
+    }
+    &.load {
+        @include opacity(1);
+        &.fadeInUp {
+            @include fadeInUp();
+        }
+        &.bounceInRight {
+            @include bounceInRight();
+        }
+        &.bounceInLeft {
+            @include bounceInLeft();
+        }
+        &.fill-bar {
+            &.html {
+                .skill-bar {
+                    width: 85%;
+                }
+            }
+            &.css {
+                .skill-bar {
+                    width: 90%;
+                }
+            }
+            &.sass {
+                .skill-bar {
+                    width: 75%;
+                }
+            }
+            &.less {
+                .skill-bar {
+                    width: 75%;
+                }
+            }
+            &.jquery {
+                .skill-bar {
+                    width: 70%;
+                }
+            }
+            &.javascript {
+                .skill-bar {
+                    width: 55%;
+                }
+            }
+            &.angularjs {
+                .skill-bar {
+                    width: 50%;
+                }
+            }
+            &.wordpress {
+                .skill-bar {
+                    width: 40%;
+                }
+            }
+            &.photoshop {
+                .skill-bar {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}

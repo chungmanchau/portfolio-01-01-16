@@ -1,0 +1,10 @@
+/**
+ * Basic typography style for copy text
+ */
+body {
+  color: $text-color;
+  font: normal 100% / 1.6 $text-font-stack;
+  @include bp-small() {
+   font-size: 85%;
+  }
+}

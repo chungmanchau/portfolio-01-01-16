@@ -1,0 +1,596 @@
+// Sections
+.container {
+
+}
+h1 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+h2 {
+    font-size: 1.2em;
+}
+h3 {
+    font-size: 1em;
+}
+%line {
+    background: $white;
+    content: "";
+    height: 2px;
+    left: 50%;
+    width: 70px;
+    margin-left: -35px;
+    position: absolute;
+}
+%icon-circle {
+    color: $white;
+    background: $text-color;
+    padding-top: 12px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 0.9em;
+    text-align: center;
+    margin: 0 5px;
+    @include transition(.2s background ease-in-out);
+    &:hover {
+        background: $brand-color;
+    }
+}
+.separator {
+    margin: 40px 0;
+    font-size: 1.6em;
+    position: relative;
+    text-align: center;
+    &:after {
+        @extend %line;
+        background: $light-grey;
+        margin-left: 40px;
+        top: 19px;
+    }
+    &:before {
+        @extend %line;
+        background: $light-grey;
+        margin-left: -110px;
+        top: 19px;
+    }
+}
+.section-header {
+    background: $brand-color;
+    padding: 40px 0;
+    .title {
+        color: $white;
+        position: relative;
+        padding-bottom: 15px;
+        &:after {
+            bottom: 0;
+            background: $white;
+            width: 40px;
+            margin-left: -20px;
+            @extend %line;
+        }
+    }
+    .sub-title {
+        color: $white;
+        font-size: 0.9em;
+        margin: 0 auto;
+        text-align: center;
+        width: 90%;
+        max-width: 700px;
+    }
+}
+%icon-flip {
+    &:before {
+        display: block;
+        @include transition(.3s all ease-in-out);
+    }
+    &:hover {
+        &:before {
+            @include transform(rotateY(180deg));
+        }
+    }
+}
+.intro {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1 {
+        color: $white;
+        margin: 0;
+        position: relative;
+        &:after {
+            @extend %line;
+            margin-left: 170px;
+            top: 17px;
+        }
+        &:before {
+            @extend %line;
+            margin-left: -240px;
+            top: 17px;
+        }
+    }
+    h3 {
+        color: $white;
+        text-transform: none;
+        margin: 0;
+        font-size: 0.8em;
+    }
+}
+.about {
+    display: inline-block;
+    width: 100%;
+    .about-content {
+        text-align: center;
+        padding: 40px 0 0;
+        .connect {
+            position: relative;
+            margin-top: 50px;
+            i {
+                @extend %icon-circle;
+                // @extend %icon-flip;
+            }
+            &> div {
+                span {
+                    position: absolute;
+                    bottom: -28px;
+                    width: 200px;
+                    left: 50%;
+                    margin-left: -100px;
+                    font-size: 0.5em;
+                    display: block;
+                    color: $mid-grey;
+                }
+                &:before {
+                    @extend %line;
+                    top: 50%;
+                    height: 1px;
+                    background: $light-grey;
+                    margin-left: 65px;
+                    width: 120px;
+                }
+                &:after {
+                    @extend %line;
+                    top: 50%;
+                    height: 1px;
+                    background: $light-grey;
+                    margin-left: -186px;
+                    width: 120px;
+                }
+            }
+            .connect-cv {
+                position: absolute;
+                left: 50%;
+                top: 70px;
+                margin-left: -344px;
+                font-size: 1.6em;
+                @include bp-small() {
+                  position: static;
+                  margin-left: 0;
+                  top: 0;
+                  left: 0;
+                  margin-bottom: 20px;
+                }
+            }
+            .connect-social {
+                position: absolute;
+                left: 50%;
+                top: 70px;
+                margin-left: 227px;
+                font-size: 1.6em;
+                @include bp-small() {
+                  position: static;
+                  margin-left: 0;
+                  top: 0;
+                  left: 0;
+                  margin-bottom: 20px;
+                }
+            }
+            .connect-profile {
+                position: relative;
+                @include bp-small() {
+                  display: block;
+                  margin: 60px 0 30px;
+                }
+                img {
+                    text-align: center;
+                    padding: 5px;
+                    border: 2px solid $mid-grey;
+                    width: 180px;
+                    @include border-radius(50%, 50%, 50%, 50%);
+                }
+                &:after {
+                    @extend %line;
+                    margin-left: -96px;
+                    bottom: -1px;
+                    width: 192px;
+                    height: 192px;
+                    border: 2px dotted $mid-grey;
+                    background: none;
+                    border-color: $mid-grey transparent $mid-grey transparent;
+                    border-radius: 50%;
+                    @include animation(spin, 5s, 0s,linear, infinite);
+                }
+            }
+        }
+        h2 {
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        h3 {
+            margin-top: 5px;
+            color: $mid-grey;
+            text-transform: none;
+            font-size: 0.8em;
+        }
+    }
+}
+.skills {
+    .skills-bars{
+        margin: 30px auto 0;
+    }
+    .skills-item {
+        display: inline-block;
+        width: 46%;
+        margin: 0 1% 20px;
+        @include bp-small() {
+          width: 100%;
+          margin: 12px 0;;
+        }
+    }
+    .skill-title {
+        text-align: left;
+        font-size: 0.9em;
+        margin-bottom: 5px;
+    }
+    .skill-bar-holder {
+        background: $light-grey;
+        border-radius: 5px;
+    }
+    .skill-bar {
+        background: $brand-color;
+        border-radius: 5px 0 0 5px;
+        position: relative;
+        height: 15px;
+        span {
+            position: absolute;
+            right: -17px;
+            top: -35px;
+            background: $text-color;
+            color: $white;
+            padding: 5px;
+            font-size: 0.8em;
+            &:after {
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 0;
+                right: 9px;
+                bottom: -8px;
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 8px solid $text-color;
+            }
+        }
+    }
+}
+.about-contact {
+    text-align: center;
+    padding: 20px 0 100px;
+    @include bp-small() {
+      padding-bottom: 50px;
+    }
+    h3 {
+        margin: 20px 0;
+        @include bp-small() {
+          margin-bottom: 0px;
+        }
+    }
+    p {
+      @include bp-small() {
+        margin-top: 0px;
+      }
+    }
+    .content-container {
+        border: 1px solid $light-grey;
+        position: relative;
+        padding: 20px 20px 0;
+        .address {
+            position: absolute;
+            top: -25px;
+            border: 5px solid $white;
+            width: 50px;
+            height: 50px;
+            left: 50%;
+            margin-left: -25px;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+    }
+    .contact-item {
+        width: 33%;
+        display: inline-block;
+        text-align: center;
+        position: relative;
+        @include bp-small() {
+          width: 100%;
+          display: block
+        }
+        h3 {
+            padding-bottom: 20px;
+        }
+        a {
+            font-weight: normal;
+            color: $text-color;
+            text-decoration: none;
+            @include transition(.2s color ease-in-out);
+            &:hover {
+                color: $brand-color;
+            }
+        }
+    }
+    i {
+        @extend %icon-circle;
+        font-size: 1.2em;
+        border: 5px solid $white;
+        width: 50px;
+        height: 50px;
+        padding-top: 10px;
+        position: absolute;
+        bottom: -25px;
+        left: 50%;
+        margin-left: -25px;
+        // @extend %icon-flip;
+        @include bp-small() {
+          display: none;
+        }
+    }
+    .contact-phone {
+        cursor: pointer;
+        i {
+            padding-top: 7px;
+            font-size: 1.7em;
+        }
+    }
+}
+
+.resume {
+    .section-header {
+        background: $secondary-color;
+    }
+    .resume-content {
+        padding: 40px 0;
+    }
+    h2 {
+        margin-bottom: 5px;
+    }
+    h3 {
+        color: $mid-grey;
+        margin-top: 5px;
+        color: #b0abab;
+        text-transform: none;
+        font-size: 0.8em;
+    }
+    .resume-item {
+        position: relative;
+        border-left: 2px solid $text-color;
+        padding: 2px 30px;
+        margin-bottom: 20px;
+        @include bp-small() {
+          border-left: none;
+          border-bottom: 2px solid $text-color;
+          padding: 0 0 30px;
+        }
+        .fa {
+            @extend %icon-circle;
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            margin-top: -25px;
+            border: 5px solid #FFF;
+            @include bp-small() {
+              left: 50%;
+              margin-left: -25px;
+              margin-top: 0;
+              bottom: -25px;
+              top: auto;
+            }
+        }
+        h2 {
+            margin-bottom: 5px;
+            span {
+                color: lighten($dark-grey, 20%);
+                font-size: 0.8em;
+                font-style: italic;
+                font-weight: normal;
+            }
+        }
+        h3 {
+            color: $dark-grey;
+            font-weight: normal;
+            font-size: 0.8em;
+            margin: 5px 0;
+        }
+        p {
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: $mid-grey;
+        }
+        ul {
+          padding-left: 0;
+        }
+        li {
+          display: inline-block;
+          margin-right: 3px;
+          margin-bottom: 10px;
+          padding: 5px 8px;
+          background: $dark-grey;
+          color: $white;
+          font-size: .8em;
+          @include transition(.2s background ease-in-out);
+          &:hover {
+            background: darken($secondary-color, 10%);;
+          }
+        }
+    }
+}
+.portfolio {
+    ul {
+        margin: 0 auto;
+        padding: 0;
+    }
+    .section-header {
+        background: $orange;
+    }
+    .portfolio-content {
+        padding: 60px 0 100px;
+        @include clearfix();
+    }
+    .portfolio-item {
+        float: left;
+        width: 30%;
+        margin-left: 5%;
+        list-style-type: none;
+        @include bp-small() {
+          width: 100%;
+          margin-left: 0;
+          float: none;
+          margin-bottom: 60px;
+        }
+        &:first-child {
+          margin-left: 0;
+        }
+        a {
+            display: block;
+            max-height: 197px;
+            overflow: hidden;
+            @include bp-small(){
+              max-height: 360px;
+            }
+        }
+        .hidden {
+          display: none;
+        }
+        img {
+            width: 100%;
+            display: block;
+            border-left: 1px solid $light-grey;
+            border-right: 1px solid $light-grey;
+        }
+        h4 {
+            margin: 0;
+            font-weight: normal;
+            text-align: center;
+        }
+        .portfolio-desc {
+            border: 1px solid $light-grey;
+            padding: 25px 20px;
+            position: relative;
+            .fa {
+                @extend %icon-circle;
+                position: absolute;
+                left: 50%;
+                margin-left: -22.5px;
+                font-size: 1.1em;
+                padding-top: 8px;
+                bottom: -25px;
+                border: 5px solid #FFF;
+                &:hover {
+                  background-color: $orange;
+                }
+            }
+        }
+    }
+}
+
+.contact {
+    .section-header {
+        background: $yellow;
+    }
+    h2 {
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+    h3 {
+        margin-top: 5px;
+        color: $mid-grey;
+        text-transform: none;
+        font-size: 0.8em;
+    }
+    #form-messages {
+      text-align: center;
+    }
+    .success {
+      color: $secondary-color;
+      margin-bottom: 30px;
+    }
+    .error {
+      margin-bottom: 30px;
+    }
+    .contact-content {
+      margin-top: 30px;
+      margin-bottom: 100px;
+        .contact-form {
+          margin-top: 40px;
+            position: relative;
+            @include clearfix();
+        }
+        @include clearfix();
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input,
+        textarea {
+            display: block;
+            width: 100%;
+            border: 1px solid lighten($mid-grey, 15%);;
+        }
+        .input-box {
+            width: 31%;
+            margin-left: 3.5%;
+            float: left;
+            margin-bottom: 20px;
+            @include bp-small() {
+              width: 100%;
+              margin-left: 0;
+              float: none;
+              margin-bottom: 20px;
+            }
+            &:first-child {
+                margin-left: 0;
+            }
+            input {
+                height: 40px;
+            }
+        }
+        .text-box {
+            margin-left: 0;
+            width: 100%;
+            clear: left;
+            textarea {
+                min-height: 300px;
+                @include bp-small() {
+                  min-height: 150px;
+                }
+            }
+        }
+        .submit {
+            position: absolute;
+            background: $text-color;
+            color: $white;
+            border: 10px solid $white;
+            font-size: 0.8em;
+            width: 150px;
+            height: 45px;
+            bottom: 0;
+            right: 40px;
+            @include transition(.2s background ease-in-out);
+            &:hover {
+                background: $yellow;
+            }
+        }
+    }
+}

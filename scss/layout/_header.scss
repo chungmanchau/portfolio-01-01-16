@@ -1,0 +1,225 @@
+// Header
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  @include transition(all .2s ease-in-out);
+  @include clearfix;
+  @include bp-small() {
+    background: $white;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+  // Logo
+  .logo {
+    float: left;
+    margin: 20px 15px;
+    @include bp-small() {
+      margin: 11px 6px;
+      display: block;
+      float: none
+    }
+    @include transition(all .3s ease-in-out);
+    a {
+      background: url(../images/logo_white.png) 0 0 no-repeat;
+      background-size: 75% auto;
+      display: block;
+      height: 51px;
+      width: 350px;
+      @include transition(all .3s ease-in-out);
+      @include bp-small() {
+        background-image: url(../images/logo.png);
+        width: 270px;
+        height: 30px;
+      }
+    }
+  }
+  .menu-icon {
+    display: none;
+    @include bp-small() {
+      display: block;
+      position: absolute;
+      right: 15px;
+      top: 5px;
+      font-size: 1.8em;
+      cursor: pointer;
+    }
+  }
+  // Nav
+  nav {
+    float: right;
+    margin-right: 20px;
+    position: relative;
+    @include clearfix();
+    @include bp-small() {
+      float: none;
+      margin-right: 0;
+      position: static;
+      display: none;
+    }
+    &.show-menu {
+      @include bp-small() {
+        display: block;
+      }
+    }
+    li {
+      float: left;
+      @include bp-small() {
+        margin: 0;
+        display: block;
+        float: none;
+        border-top: 1px solid $light-grey;
+      }
+      a {
+        display: block;
+        width: 120px;
+        color: $white;
+        font-size: 0.9em;
+        text-align: center;
+        padding: 30px 0;
+        text-transform: uppercase;
+        @include transition(all .15s ease-in-out);
+        transition-delay: 0.1s;
+        @include bp-large() {
+          width: 100px;
+        }
+        @include bp-medium() {
+          width: 90px;
+        }
+        @include bp-small() {
+          padding: 10px 0;
+          width: 100%;
+          color: $text-color;
+        }
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      &:hover,
+      &.nav-active {
+        &:nth-child(1) {
+          a {
+            color: $brand-color;
+            @include bp-small() {
+              background: $brand-color;
+              color: $white;
+            }
+          }
+        }
+        &:nth-child(2) {
+          a {
+            color: $secondary-color;
+            @include bp-small() {
+              background: $secondary-color;
+              color: $white;
+            }
+          }
+        }
+        &:nth-child(3) {
+          a {
+            color: $orange;
+            @include bp-small() {
+              background: $orange;
+              color: $white;
+            }
+          }
+        }
+        &:nth-child(4) {
+          a {
+            color: $yellow;
+            @include bp-small() {
+              background: $yellow;
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+    .nav-item:nth-child(1).nav-active ~ .nav-line {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+    .nav-item:nth-child(2).nav-active ~ .nav-line {
+      -webkit-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0);
+      background: $secondary-color;
+    }
+    .nav-item:nth-child(3).nav-active ~ .nav-line {
+      -webkit-transform: translate3d(200%, 0, 0);
+      transform: translate3d(200%, 0, 0);
+      background: $orange;
+    }
+    .nav-item:nth-child(4).nav-active ~ .nav-line {
+      -webkit-transform: translate3d(300%, 0, 0);
+      transform: translate3d(300%, 0, 0);
+      background: $yellow;
+    }
+    .nav-item:nth-child(5).nav-active ~ .nav-line {
+      -webkit-transform: translate3d(400%, 0, 0);
+      transform: translate3d(400%, 0, 0);
+    }
+    .nav-line {
+      position: absolute;
+      left: 0;
+      bottom: 12px;
+      width: 120px;
+      height: 2px;
+      margin: 0;
+      pointer-events: none;
+      border: 1px solid #fff;
+      border-width: 0 40px;
+      background: $brand-color;
+      opacity: 0;
+      -webkit-transition-timing-function: cubic-bezier(1, 0.01, 0, 1);
+      -webkit-transition-timing-function: cubic-bezier(1, 0.01, 0, 1.22);
+      transition-timing-function: cubic-bezier(1, 0.01, 0, 1.22);
+      @include transition(0s all ease-in-out);
+      @include bp-large() {
+        width: 100px;
+        border-width: 0 35px;
+      }
+      @include bp-medium() {
+        width: 90px;
+        border-width: 0 30px;
+      }
+      @include bp-small() {
+        display: none;
+      }
+    }
+  }
+  // Fixed
+  &.fixed {
+    background: $white;
+    @include box-shadow-level(2);
+    .logo {
+      margin: 11px 6px;
+      a {
+        height: 32px;
+        background-image: url(../images/logo.png);
+      }
+    }
+    nav {
+      a {
+        padding: 20px 0;
+        color: $text-color;
+        text-decoration: none;
+        @include bp-small() {
+          padding: 10px 0;
+        }
+        &:hover {
+          color: $brand-color;
+        }
+      }
+      .nav-line {
+        opacity: 1;
+        @include transition(.15s all ease-in-out);
+        transition-delay: 0.1s;
+      }
+    }
+  }
+}
